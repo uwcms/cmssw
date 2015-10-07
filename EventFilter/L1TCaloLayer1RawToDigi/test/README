@@ -1,0 +1,19 @@
+L1TCaloLayer1RawToDigi contains CMSSW EDProducer which decodes
+Layer-1 calorimeter trigger data obtained from its three FEDs.
+
+The producer makes ECAL and HCAL TPG objects.
+
+These should be identical to the ones read out from ECAL TCCs
+and HCAL uHTRs.  However, any link issues could result in 
+discrepancies.  
+
+DQM based on this readout compares these two sets.
+
+The test python file here just prints the non-zero and error
+data for the first five events for the given raw data file.
+
+There is also a simple standalone tester and two test events that you can try:
+
+  cd $CMSSW_BASE/src/EventFilter/L1TCaloLayer1RawToDigi/test/
+  c++ testUCTUnpacker.cpp
+  ./a.out < event_test1.txt
